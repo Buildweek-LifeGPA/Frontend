@@ -1,8 +1,24 @@
-import React from 'react'
+import React from 'react';
+import styled from "styled-components";
+import { Route } from "react-router-dom";
+import Elipses from '../components/elipses';
+import Card from '../components/card';
+
+require('typeface-rajdhani');
+
+const ScreenSize = styled.section`
+position: relative;
+width: 360px;
+height: 640px;
+background: #FFFFFF;
+`;
 
 function App() {
     return (
-        <h1>It works!</h1>
+        <ScreenSize>
+            <Route component={Elipses}/>
+            <Route component={Card}/>
+        </ScreenSize>
     )
 }
 
