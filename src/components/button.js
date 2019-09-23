@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import LoginScreen from "./LoginScreen";
 
 
 //Google Button
@@ -19,7 +18,7 @@ export function GoogleButton () {
         <div>
             <GoogleBtn>Sign In With Google</GoogleBtn>
         </div>
-    )
+    );
 };
 
 
@@ -39,7 +38,7 @@ export function FaceBookButton () {
         <div>
             <FaceBookBtn>Sign In With FaceBook</FaceBookBtn>
         </div>
-    )
+    );
 };
 
 //Log in Button
@@ -47,7 +46,6 @@ export function FaceBookButton () {
 const LoginBtn = styled.button`
 font-size: 1.6rem;
 border: yellow 1px;
-color: yellow;
 text-align: center;
 margin-left: 20%; 
 margin-top: 10%;
@@ -59,5 +57,5 @@ export function LoginButton () {
         <div>
             <LoginBtn>LOG IN</LoginBtn>
         </div>
-    )
-}
+    );
+};

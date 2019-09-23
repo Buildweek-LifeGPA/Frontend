@@ -28,6 +28,10 @@ margin-top: 10%;
 text-align: center;
 `;
 
+const FooterText = styled.footer`
+font-size: 10px;
+`;
+
 
 export default function LoginScreen () {
     return (
@@ -44,6 +48,11 @@ export default function LoginScreen () {
             <PasswordText type="text" placeholder="Password"/>
                 <Link>Forgot your password?</Link>
             <LoginButton/>
+
+            <FooterText> By Using GreatHabits you agree to the 
+                <br></br>
+                <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>
+                </FooterText>
         </div>
     )
 };
