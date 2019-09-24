@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import "../images/LifeGPALogo.png";
-import "../css/LaunchScreenStyle.css";
+
 
 const P = styled.p`
 
