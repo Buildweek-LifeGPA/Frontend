@@ -1,6 +1,4 @@
 import React from "react";
-import "../images/LifeGPALogo.png";
-import "../css/LaunchScreenStyle.css";
 
 
 export default function LaunchScreen () {
