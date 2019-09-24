@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import "../css/CreateAccountStyle.css";
 
 const Title = styled.h3`
 color: white
@@ -11,16 +10,30 @@ font-size: 10px;
 color: white;
 `;
 
+const InputWrapper = styled.div`
+display: flex;
+flex-direction: column;
+margin: 0 30%;
+`;
+
+const InputTag = styled.input`
+margin-top: 5%; 
+`;
+
+const CreateAccountButton = styled.button`
+background-color: yellow;
+`;
+
 export default function CreateAccount () {
     return (
         <div>
             <Title>Sign up</Title>
-            <div className="input-create-account">
-            <input type="text" placeholder="Name"/>
-            <input type="text" placeholder="Email"/>
-            <input type="password" placeholder="Create Password"/>
-            </div>
-            <button className="create-account-btn">Log in</button>
+            <InputWrapper>
+            <InputTag type="text" placeholder="Name"/>
+            <InputTag type="text" placeholder="Email"/>
+            <InputTag type="password" placeholder="Create Password"/>
+            </InputWrapper>
+            <CreateAccountButton>Log in</CreateAccountButton>
             <FooterText> By Using GreatHabits you agree to the 
                 <br></br>
                 <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>
