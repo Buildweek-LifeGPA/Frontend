@@ -45,7 +45,7 @@ export default function LoginScreen () {
                 <br></br>
             
             <EmailText type="text" placeholder="Email" />
-            <PasswordText type="text" placeholder="Password"/>
+            <PasswordText type="password" placeholder="Password"/>
                 <Link>Forgot your password?</Link>
             <LoginButton/>
 

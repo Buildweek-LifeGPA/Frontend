@@ -1,0 +1,13 @@
+.input-create-account {
+    display: flex;
+    flex-direction: column;
+    margin: 0 30%;
+}
+
+input {
+    margin-top: 5%; 
+}
+
+.create-account-btn {
+    background-color: yellow;
+}
