@@ -5,7 +5,7 @@ import LoginScreen from '../components/LoginScreen';
 function App() {
     return (
     <div>
-        <Route path="/login-page" component={LoginScreen}/>
+        <Route path="/login-screen" component={LoginScreen}/>
     </div>
     )
 }

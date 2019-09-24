@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 
-//Google Button
+//Google Button "login-screen"
 const GoogleBtn = styled.button`
 font-size: 1.6rem;
 border: black 1px;
@@ -22,7 +22,7 @@ export function GoogleButton () {
 };
 
 
-//FaceBook Button
+//FaceBook Button "login-screen"
 const FaceBookBtn = styled.button`
 font-size: 1.6rem;
 border: blue 1px;
@@ -41,7 +41,7 @@ export function FaceBookButton () {
     );
 };
 
-//Log in Button
+//Log in Button "login-screen"
 
 const LoginBtn = styled.button`
 font-size: 1.6rem;
