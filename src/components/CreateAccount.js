@@ -105,7 +105,7 @@ export default function CreateAccount() {
                 </TitleBox>
                 <Card>
                     <FullName type="text" placeholder="Name" />
-                    <Email type="text" placeholder="Email" />
+                    <Email type="email" placeholder="Email" />
                     <Password type="password" placeholder="Create Password" />
                     <Link to='/Dashboard'>
                         <CreateAccountButton>
