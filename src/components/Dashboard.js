@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+require('typeface-rajdhani');
 
-const ElipseGroup = styled.section`
+const Menu = styled.section`
 position: absolute;
 width: 30px;
 height: 6px;
@@ -39,7 +40,8 @@ const Lgpa = styled.section`
 position: absolute;
 width: 110px;
 height: 21px;
-top: 180px;
+left: 165px;
+top: 227px;
 font-family: Rajdhani;
 font-style: normal;
 font-weight: normal;
@@ -96,7 +98,7 @@ text-align: center;
 color: #4F4F4F;
 `;
 
-const Button = styled.section`
+const CreateButton = styled.section`
 position: absolute;
 width: 342px;
 height: 41px;
@@ -133,17 +135,18 @@ text-align: center;
 export default function Dashboard() {
     return (
         <div>
-            <ElipseGroup>
+            <Menu>
                 <ElipseOne>
                 </ElipseOne>
                 <ElipseTwo>
                 </ElipseTwo>
                 <ElipseThree>
                 </ElipseThree>
-                <Lgpa>
-                    LGPA
+            </Menu>
+            <Lgpa>
+                LGPA
             </Lgpa>
-            </ElipseGroup>
+
             <Card>
                 <DiagrammBox>
                 </DiagrammBox>
@@ -152,13 +155,13 @@ export default function Dashboard() {
                         50
                     </Percantage>
                 </PercantageBox>
-                <Button>
+                <CreateButton>
                     <Rectangle>
                         <ReportText>
                             Begin Daily Report
                         </ReportText>
                     </Rectangle>
-                </Button>
+                </CreateButton>
             </Card>
         </div>
     )
