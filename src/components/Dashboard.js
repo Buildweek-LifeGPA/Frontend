@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+//import { Link } from "react-router-dom";
 require('typeface-rajdhani');
 
-const Menu = styled.section`
+const Elipses = styled.section`
 position: absolute;
 width: 30px;
 height: 6px;
@@ -135,14 +136,14 @@ text-align: center;
 export default function Dashboard() {
     return (
         <div>
-            <Menu>
+            <Elipses>
                 <ElipseOne>
                 </ElipseOne>
                 <ElipseTwo>
                 </ElipseTwo>
                 <ElipseThree>
                 </ElipseThree>
-            </Menu>
+            </Elipses>
             <Lgpa>
                 LGPA
             </Lgpa>
