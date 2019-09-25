@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 //import { Link } from "react-router-dom";
-import { DropdownExampleClearable, options } from "./DropDown";
-import { Dropdown } from 'semantic-ui-react'
+import { LongMenu, options } from "./DropDown";
 require('typeface-rajdhani');
 
 const Elipses = styled.section`
@@ -138,7 +137,7 @@ text-align: center;
 export default function Dashboard() {
     return (
         <div>
-            <Dropdown clearable options={options} selection />
+            <LongMenu options={options} />
             <Elipses>
                 <ElipseOne>
                 </ElipseOne>
