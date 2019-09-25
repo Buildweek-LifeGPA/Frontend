@@ -2,57 +2,76 @@ import React from "react";
 import styled from "styled-components";
 import { GoogleButton, FaceBookButton, LoginButton } from "../components/button";
 import { Link } from "react-router-dom";
+require('typeface-rajdhani');
 
-
-//styled components
-const Header = styled.h3`
-padding-top: 5%;
-padding-bottom: 3%;
-text-align: center;
-background-color: black;
-color: white;
+const OuterContainer = styled.section`
+position: relative;
+width: 360px;
+height: 640px;
+background: #FFFFFF;
 `;
 
-const Title = styled.h2`
-text-align: center;
+const TitleBox = styled.section`
+position: absolute;
+width: 360px;
+height: 80px;
+left: 0px;
+top: 0px;
+background: #000000;
 `;
 
-const EmailText = styled.input`
-width: 100%;
-text-align: center;
+const Title = styled.section`
+position: absolute;
+left: 41.39%;
+right: 41.39%;
+top: 5.78%;
+bottom: 90.16%;
+font-family: Rajdhani;
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 26px;
+color: rgba(255, 255, 255, 0.9);
+margin-top: 30px;
 `;
 
-const PasswordText = styled.input`
-width: 100%;
-margin-top: 10%;
-text-align: center;
+const Card = styled.section`
+position: absolute;
+width: 360px;
+height: 507px;
+left: 0px;
+top: 76px;
 `;
 
-const FooterText = styled.footer`
-font-size: 10px;
+const Greeting = styled.section`
+position: absolute;
+left: 33.61%;
+right: 33.89%;
+top: 27px;
+bottom: 80%;
+font-family: Rajdhani;
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 26px;
+color: black;
 `;
-
 
 export default function LoginScreen () {
     return (
         <div>
-            <Header>Log in</Header>
-            <Title>Welcome back</Title>
-                <GoogleButton />
-                <FaceBookButton />
-                <br></br>
-                <hr></hr>
-                <br></br>
-            
-            <EmailText type="text" placeholder="Email" />
-            <PasswordText type="password" placeholder="Password"/>
-                <Link>Forgot your password?</Link>
-            <LoginButton/>
-
-            <FooterText> By Using GreatHabits you agree to the 
-                <br></br>
-                <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>
-                </FooterText>
+            <OuterContainer>
+                <TitleBox>
+                    <Title>
+                        Log in
+                    </Title>
+                </TitleBox>
+                <Card>
+                    <Greeting>
+                        Welcome back
+                    </Greeting>
+                </Card>
+            </OuterContainer>
         </div>
     )
 };
