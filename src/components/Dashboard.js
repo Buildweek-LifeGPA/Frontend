@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
-import { DropdownExampleClearable, options } from "./DropDown";
-import { Dropdown } from 'semantic-ui-react'
-import LongMenu from './DropDown';
+import { LongMenu, options } from "./DropDown";
 require('typeface-rajdhani');
 
 const Elipses = styled.section`
@@ -12,32 +10,6 @@ width: 30px;
 height: 6px;
 left: 169px;
 top: 47px;
-`;
-
-const ElipseOne = styled.section`
-position: absolute;
-width: 6px;
-height: 6px;
-background: #4F4F4F;
-border-radius: 100%;
-`;
-
-const ElipseTwo = styled.section`
-position: absolute;
-width: 6px;
-height: 6px;
-left: 12px;
-background: #4F4F4F;
-border-radius: 100%;
-`;
-
-const ElipseThree = styled.section`
-position: absolute;
-width: 6px;
-height: 6px;
-left: 24px;
-background: #4F4F4F;
-border-radius: 100%;
 `;
 
 const Lgpa = styled.section`
@@ -139,13 +111,9 @@ text-align: center;
 export default function Dashboard() {
     return (
         <div>
-            <Elipses onClick={LongMenu}>
-                <ElipseOne>
-                </ElipseOne>
-                <ElipseTwo>
-                </ElipseTwo>
-                <ElipseThree>
-                </ElipseThree>
+
+            <Elipses>
+                <LongMenu options={options} />
             </Elipses>
             <Lgpa>
                 LGPA
@@ -159,13 +127,15 @@ export default function Dashboard() {
                         50
                     </Percantage>
                 </PercantageBox>
-                <CreateButton>
-                    <Rectangle>
-                        <ReportText>
-                            Begin Daily Report
+                <Link to='/ListOfHabits'>
+                    <CreateButton>
+                        <Rectangle>
+                            <ReportText>
+                                Begin Daily Report
                         </ReportText>
-                    </Rectangle>
-                </CreateButton>
+                        </Rectangle>
+                    </CreateButton>
+                </Link>
             </Card>
         </div>
     )

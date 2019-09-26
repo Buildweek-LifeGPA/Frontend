@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import MoreHorizIcon from 'material-ui/icons/MoreHoriz';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 const options = [
-  'Sedna',
-  'Titania',
-  'Triton',
-  'Umbriel',
+  'View OA Details',
+  'Placehilder',
+  'Placeholder',
+  'Placeholder',
 ];
 
 const ITEM_HEIGHT = 48;
 
-export default function LongMenu() {
+function LongMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -33,7 +33,7 @@ export default function LongMenu() {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <MoreHorizIcon/>
+        <MoreHorizIcon />
       </IconButton>
       <Menu
         id="long-menu"
@@ -49,7 +49,7 @@ export default function LongMenu() {
         }}
       >
         {options.map(option => (
-          <MenuItem key={option} selected={option === 'Sedna'} onClick={handleClose}>
+          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
             {option}
           </MenuItem>
         ))}
@@ -57,3 +57,5 @@ export default function LongMenu() {
     </div>
   );
 }
+  
+  export { LongMenu, options };
