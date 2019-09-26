@@ -7,7 +7,7 @@ require('typeface-rajdhani');
 const OuterContainer = styled.section`
 position: relative;
 width: 360px;
-height: 696px;
+height: 640px;
 `;
 
 const Title = styled.section`
@@ -23,6 +23,14 @@ font-size: 20px;
 line-height: 26px;
 `;
 
+const Arrow = styled.section`
+position: absolute;
+width: 16px;
+height: 16px;
+left: 16px;
+top: 38px;
+`;
+
 
 const EnterBox = styled.section`
 position: absolute;
@@ -30,10 +38,10 @@ width: 361px;
 height: 56px;
 left: calc(50% - 361px/2 + 0.5px);
 bottom: 0px;
-border: 1px solid #000000;
+border-top: 1px solid lightgrey;
 `;
 
-const EnterNewHabit = styled.input`
+const EnterNewHabit = styled.text`
 position: absolute;
 width: 180px;
 height: 42px;
@@ -66,17 +74,21 @@ export default function ListOfHabits(props) {
     return (
         <div>
             <OuterContainer>
-                <div>
-                <ArrowBackIcon onClick={back} />
-                </div>
+                <Arrow>
+                    <ArrowBackIcon onClick={back} />
+                </Arrow>
                 <Title>
                     My habits
             </Title>
                 <EnterBox>
-                    <EnterNewHabit type="text" placeholder="Enter new habit ..." />
-                    <AddHabit>
-                        +
+                    <EnterNewHabit>
+                        Enter new Habit ...
+                    </EnterNewHabit>
+                    <Link to='/Create-Habit'>
+                        <AddHabit>
+                            +
                     </AddHabit>
+                    </Link>
                 </EnterBox>
             </OuterContainer>
         </div>
