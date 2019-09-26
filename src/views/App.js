@@ -5,6 +5,7 @@ import LoginScreen from '../components/LoginScreen';
 import LaunchScreen from '../components/LaunchScreen';
 import CreateAccount from '../components/CreateAccount';
 import ListOfHabits from '../components/ListOfHabits';
+import CreateHabit from '../components/CreateHabit';
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login-screen" component={LoginScreen}/>
         <Route path="/create-account" component={CreateAccount} />
         <Route path="/ListOfHabits" component={ListOfHabits} />
+        <Route path="/Create-Habit" component={CreateHabit} />
     </div>
     )
 }
