@@ -5,20 +5,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 const options = [
-  'None',
-  'Atria',
-  'Callisto',
-  'Dione',
-  'Ganymede',
-  'Hangouts Call',
-  'Luna',
-  'Oberon',
-  'Phobos',
-  'Pyxis',
-  'Sedna',
-  'Titania',
-  'Triton',
-  'Umbriel',
+  'View OA Details',
+  'Placehilder',
+  'Placeholder',
+  'Placeholder',
 ];
 
 const ITEM_HEIGHT = 48;
