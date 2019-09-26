@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-//import { Link } from "react-router-dom";
-//import ArrowBackIos from '@bit/mui-org.material-ui-icons.arrow-back-ios';
+import { Link } from "react-router-dom";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 require('typeface-rajdhani');
 
 const OuterContainer = styled.section`
@@ -23,13 +23,6 @@ font-size: 20px;
 line-height: 26px;
 `;
 
-const StepBack = styled.section`
-position: absolute;
-width: 16px;
-height: 16px;
-left: 16px;
-top: 42px;
-`;
 
 const EnterBox = styled.section`
 position: absolute;
@@ -66,13 +59,16 @@ background: #9B51E0;
 border-radius: 100%;
 `;
 
-export default function ListOfHabits() {
+export default function ListOfHabits(props) {
+    function back() {
+        return props.history.goBack()
+    };
     return (
         <div>
             <OuterContainer>
-                <StepBack>
-                    {'<='}
-                </StepBack>
+                <div>
+                <ArrowBackIcon onClick={back} />
+                </div>
                 <Title>
                     My habits
             </Title>
