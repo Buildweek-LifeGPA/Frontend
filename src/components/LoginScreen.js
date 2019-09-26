@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import GoogleButton from "react-google-button";
 import FacebookLogin from 'react-facebook-login';
 import { Link } from "react-router-dom";
+import axios from "axios";
 require('typeface-rajdhani');
 
 const OuterContainer = styled.section`
@@ -194,7 +195,15 @@ text-align: center;
 color: #828282;
 `;
 
+function registerUser(body){
+    axios
+      .post("https://lifegpa-zach-christy.herokuapp.com/api/register", body)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err))
+  }
+
 export default function LoginScreen() {
+    const [username, setUsername] = useState("");
     return (
         <div>
             <OuterContainer>
@@ -218,7 +227,10 @@ export default function LoginScreen() {
                         or
                     </PTag>
                     <Line2 />
-                    <Email type="email" placeholder="Email" />
+                    <Email onChange={e => setUsername(e.target.value)}
+                            type="text"
+                            name="username"
+                            value={username}placeholder="Email" />
                     <Password type="password" placeholder="Create Password" />
                     <ForgotPW>
                         <Link>Forgot your password?</Link>

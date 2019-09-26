@@ -79,6 +79,7 @@ background:none;
 border:none;
 `;
 
+
 export default function CreateHabit(props) {
     function back() {
         return props.history.goBack()
@@ -95,7 +96,7 @@ export default function CreateHabit(props) {
                 <TitleOfHabit type="text" placeholder="Title of Habit" />
                 <LeftLine />
                 <BottomLine />
-                <AddHabit>
+                <AddHabit type="submit">
                     ADD HABIT
                 </AddHabit>
             </OuterContainer>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 require('typeface-rajdhani');
@@ -97,6 +97,7 @@ text-align: center;
 `;
 
 export default function CreateAccount() {
+    const [username, setUsername] = useState("");
     return (
         <div>
             <OuterContainer>
