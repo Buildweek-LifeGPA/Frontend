@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import axios from "axios";
 require('typeface-rajdhani');
 
 const OuterContainer = styled.section`
@@ -79,7 +80,28 @@ background:none;
 border:none;
 `;
 
+
 export default function CreateHabit(props) {
+    const [inputValue, setInputValue] = useState({habitTitle: "", catergoryId: 1});
+    // console.log(props,"hello")
+    const handleSubmit = () => {
+        axios
+          .post(`https://lifegpa-zach-christy.herokuapp.com/api/habits`, inputValue)
+          .then(res => {
+            console.log(res);
+            props.history.push("/ListOfHabits")
+          })
+          .catch(err => {
+            console.log(err.response);
+          });
+      };
+    const handleInput = e => {
+        setInputValue({
+            ...inputValue,
+            [e.target.name]: e.target.value
+          });
+      };
+
     function back() {
         return props.history.goBack()
     };
@@ -92,10 +114,13 @@ export default function CreateHabit(props) {
                 <Title>
                     Create a habit
                 </Title>
-                <TitleOfHabit type="text" placeholder="Title of Habit" />
+                <TitleOfHabit
+                onChange={handleInput}
+                 type="text" 
+                 placeholder="Title of Habit" />
                 <LeftLine />
                 <BottomLine />
-                <AddHabit>
+                <AddHabit onClick={handleSubmit} type="submit">
                     ADD HABIT
                 </AddHabit>
             </OuterContainer>

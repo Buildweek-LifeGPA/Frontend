@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+// import FormInfo from "./FormInfo";
 require('typeface-rajdhani');
 
 const OuterContainer = styled.section`
@@ -80,6 +81,7 @@ export default function ListOfHabits(props) {
                 <Title>
                     My habits
             </Title>
+            {/* <FormInfo /> */}
                 <EnterBox>
                     <EnterNewHabit>
                         Enter new Habit ...

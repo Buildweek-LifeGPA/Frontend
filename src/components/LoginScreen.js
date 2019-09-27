@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import GoogleButton from "react-google-button";
 import FacebookLogin from 'react-facebook-login';
 import { Link } from "react-router-dom";
+import axios from "axios";
 require('typeface-rajdhani');
 
 const OuterContainer = styled.section`
@@ -108,7 +109,7 @@ line-height: 14px;
 text-align: center;
 `;
 
-const Email = styled.input`
+const UserName = styled.input`
 position: absolute;
 width: 321px;
 height: 43px;
@@ -194,7 +195,28 @@ text-align: center;
 color: #828282;
 `;
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
+    const [inputValue, setInputValue] = useState({username: "", password: "" });
+    const handleSubmit = e => {
+        e.preventDefault();
+        axios
+          .post(`https://lifegpa-zach-christy.herokuapp.com/api/login`, inputValue)
+          .then(res => {
+            console.log(res);
+            props.history.push("/dashboard")
+          })
+          .catch(err => {
+            console.log(err.response);
+          });
+      };
+    const handleInput = e => {
+        setInputValue({
+            ...inputValue,
+            [e.target.name]: e.target.value
+          });
+      };
+
+
     return (
         <div>
             <OuterContainer>
@@ -218,16 +240,22 @@ export default function LoginScreen() {
                         or
                     </PTag>
                     <Line2 />
-                    <Email type="email" placeholder="Email" />
-                    <Password type="password" placeholder="Create Password" />
+                    <UserName onChange={handleInput}
+                            type="text"
+                            name="username"
+                            value={inputValue.username} 
+                            placeholder="Email" />
+                    <Password onChange={handleInput}
+                                name="password"
+                                value={inputValue.password}
+                                type="password" 
+                                placeholder="Create Password" />
                     <ForgotPW>
                         <Link>Forgot your password?</Link>
                     </ForgotPW>
-                    <Link to='/Dashboard'>
-                        <LoginButton>
+                        <LoginButton onClick={handleSubmit} type="submit">
                             LOG IN
                     </LoginButton>
-                    </Link>
                 </Card>
                 <FooterText>
                     By Using GreatHabits you agree to the
