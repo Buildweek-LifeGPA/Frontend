@@ -109,7 +109,7 @@ line-height: 14px;
 text-align: center;
 `;
 
-const Email = styled.input`
+const UserName = styled.input`
 position: absolute;
 width: 321px;
 height: 43px;
@@ -195,14 +195,15 @@ text-align: center;
 color: #828282;
 `;
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
     const [inputValue, setInputValue] = useState({username: "", password: "" });
     const handleSubmit = e => {
         e.preventDefault();
         axios
-          .post(`https://lifegpa-zach-christy.herokuapp.com/api/register`, inputValue)
+          .post(`https://lifegpa-zach-christy.herokuapp.com/api/login`, inputValue)
           .then(res => {
             console.log(res);
+            props.history.push("/dashboard")
           })
           .catch(err => {
             console.log(err.response);
@@ -239,10 +240,11 @@ export default function LoginScreen() {
                         or
                     </PTag>
                     <Line2 />
-                    <Email onChange={handleInput}
+                    <UserName onChange={handleInput}
                             type="text"
                             name="username"
-                            value={inputValue.username} placeholder="Email" />
+                            value={inputValue.username} 
+                            placeholder="Email" />
                     <Password onChange={handleInput}
                                 name="password"
                                 value={inputValue.password}

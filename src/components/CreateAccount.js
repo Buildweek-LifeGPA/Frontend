@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import axios from "axios";
 require('typeface-rajdhani');
 
 const OuterContainer = styled.section`
@@ -50,6 +51,15 @@ left: 21px;
 top: 25px; 
 `;
 
+const Username = styled.input`
+position: absolute;
+width: 321px;
+height: 43px;
+left: 21px;
+top: 185px; 
+`;
+
+
 const Email = styled.input`
 position: absolute;
 width: 321px;
@@ -71,7 +81,7 @@ position: absolute;
 width: 321px;
 height: 50px;
 left: 21px;
-top: 198px;
+top: 245px;
 background: #FFEB38;
 border-radius: 2px;
 font-family: Rajdhani;
@@ -87,7 +97,7 @@ position: absolute;
 width: 171px;
 height: 29px;
 left: 97px;
-top: 264px;
+top: 304px;
 font-family: Rajdhani;
 font-style: normal;
 font-weight: normal;
@@ -96,8 +106,27 @@ line-height: 14px;
 text-align: center;
 `;
 
-export default function CreateAccount() {
-    const [username, setUsername] = useState("");
+export default function CreateAccount(props) {
+    const [inputValue, setInputValue] = useState({fullname: "", email: "", password: "", username: "" });
+    // console.log(props,"hello")
+    const handleSubmit = () => {
+        axios
+          .post(`https://lifegpa-zach-christy.herokuapp.com/api/register`, inputValue)
+          .then(res => {
+            console.log(res);
+            props.history.push("/login-screen")
+          })
+          .catch(err => {
+            console.log(err.response);
+          });
+      };
+    const handleInput = e => {
+        setInputValue({
+            ...inputValue,
+            [e.target.name]: e.target.value
+          });
+      };
+
     return (
         <div>
             <OuterContainer>
@@ -105,14 +134,37 @@ export default function CreateAccount() {
                     <Title>Sign up</Title>
                 </TitleBox>
                 <Card>
-                    <FullName type="text" placeholder="Name" />
-                    <Email type="email" placeholder="Email" />
-                    <Password type="password" placeholder="Create Password" />
-                    <Link to='/Dashboard'>
-                        <CreateAccountButton>
+                    <FullName 
+                    onChange={handleInput}
+                    type="text" 
+                    name="fullname"
+                    value={inputValue.fullname}
+                    placeholder="Name"
+                     />
+                    <Email 
+                    onChange={handleInput}
+                    type="email"
+                    name="email"
+                    value={inputValue.email}
+                     placeholder="Email" />
+                    <Password
+                    onChange={handleInput}
+                    type="password" 
+                    name="password"
+                    value={inputValue.password}
+                    placeholder="Create Password" />
+                    <Username 
+                    onChange={handleInput}
+                    type="text" 
+                    name="username"
+                    value={inputValue.username}
+                    placeholder="Username" />
+                        <CreateAccountButton 
+                                onClick={e => { 
+                                e.preventDefault();
+                                handleSubmit();}}>
                             Log in
                     </CreateAccountButton>
-                    </Link>
                     <FooterText>
                         By Using GreatHabits you agree to the
                         <br></br>
