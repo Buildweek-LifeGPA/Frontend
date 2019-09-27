@@ -195,15 +195,27 @@ text-align: center;
 color: #828282;
 `;
 
-function registerUser(body){
-    axios
-      .post("https://lifegpa-zach-christy.herokuapp.com/api/register", body)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err))
-  }
-
 export default function LoginScreen() {
-    const [username, setUsername] = useState("");
+    const [inputValue, setInputValue] = useState({username: "", password: "" });
+    const handleSubmit = e => {
+        e.preventDefault();
+        axios
+          .post(`https://lifegpa-zach-christy.herokuapp.com/api/register`, inputValue)
+          .then(res => {
+            console.log(res);
+          })
+          .catch(err => {
+            console.log(err.response);
+          });
+      };
+    const handleInput = e => {
+        setInputValue({
+            ...inputValue,
+            [e.target.name]: e.target.value
+          });
+      };
+
+
     return (
         <div>
             <OuterContainer>
@@ -227,19 +239,21 @@ export default function LoginScreen() {
                         or
                     </PTag>
                     <Line2 />
-                    <Email onChange={e => setUsername(e.target.value)}
+                    <Email onChange={handleInput}
                             type="text"
                             name="username"
-                            value={username}placeholder="Email" />
-                    <Password type="password" placeholder="Create Password" />
+                            value={inputValue.username} placeholder="Email" />
+                    <Password onChange={handleInput}
+                                name="password"
+                                value={inputValue.password}
+                                type="password" 
+                                placeholder="Create Password" />
                     <ForgotPW>
                         <Link>Forgot your password?</Link>
                     </ForgotPW>
-                    <Link to='/Dashboard'>
-                        <LoginButton>
+                        <LoginButton onClick={handleSubmit} type="submit">
                             LOG IN
                     </LoginButton>
-                    </Link>
                 </Card>
                 <FooterText>
                     By Using GreatHabits you agree to the
